@@ -1,2 +1,3 @@
 - [ ] Create a parser 
 - [ ] Write tests 
+- [ ] Create a CI pipeline for testing 
