@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 tabled = { version = "0.12.0"}
+
+[dev-dependencies]
+pretty_assertions = "1.3.0"

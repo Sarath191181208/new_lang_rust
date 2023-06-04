@@ -1,4 +1,4 @@
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 pub enum TokenKind {
     Number,
     Plus,
@@ -19,7 +19,7 @@ impl std::fmt::Display for TokenKind{
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct TextSpan {
     pub start: usize,
     pub end: usize,
@@ -40,7 +40,7 @@ impl TextSpan {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Token {
     pub kind: TokenKind,
     pub span: TextSpan,
@@ -116,8 +116,9 @@ impl<'a> Lexer<'a> {
     fn parse_arthmatic_symbols(&mut self) -> TokenKind {
         match self.consume_character() {
             None => TokenKind::BadToken,
+            // = => 
             Some(c) => match c {
-                '+' => TokenKind::Plus,
+                '+' => TokenKind::Plus, 
                 '-' => TokenKind::Minus,
                 '*' => TokenKind::Star,
                 '/' => TokenKind::Slash,
